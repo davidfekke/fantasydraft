@@ -14,7 +14,10 @@ export default function Player({ player }: PlayerProps) {
   return (
     <div className="border p-4 rounded-xl m-4" onClick={handleOnClick}>
       <h2 className={`text-xl font-bold ${player.picked ? "line-through" : ""}`}>{player.full_name}</h2>
-      <p className={`text-gray-600 ${player.picked ? "line-through" : ""}`}>{player.position} - {player.team}: rank {player.search_rank}</p>
+      <p className={`text-gray-600 ${player.picked ? "line-through" : ""}`}>
+  {player.position}
+  {player.team ? ` - ${player.team}` : ''}: rank {player.search_rank ?? '-'}
+      </p>
     </div>
   );
 }
